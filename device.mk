@@ -400,7 +400,7 @@ PRODUCT_COPY_FILES += \
 
 # USB
 PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service.basic
+    android.hardware.usb@1.0-service.basic_land
 
 # Vibrator
 PRODUCT_PACKAGES += \
