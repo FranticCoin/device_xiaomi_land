@@ -33,3 +33,7 @@ if [ "$boardid" == "S88537AA1" ]; then
 else
     setprop persist.sys.fp.vendor searchf
 fi
+
+if [ ! -f /data/system/users/0/settings_fingerprint.xml ]; then
+    rm -rf /mnt/vendor/persist/data/gxfp/0_0
+fi
