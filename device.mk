@@ -377,6 +377,24 @@ PRODUCT_PACKAGES += \
     libprotobuf-cpp-full \
     libxml2
 
+# Ramdisk
+PRODUCT_PACKAGES += \
+    fstab.qcom \
+    init.qcom.rc \
+    init.qcom.usb.rc \
+    init.qcom.power.rc \
+    init.recovery.qcom.rc \
+    init.target.rc \
+    init.goodix.sh \
+    ueventd.qcom.rc \
+    init.msm.usb.configfs.rc
+
+PRODUCT_PACKAGES += \
+    init.qcom.early_boot.sh \
+    init.qcom.post_boot.sh \
+    init.qcom.sh \
+    init.qcom.usb.sh
+
 # Seccomp policy
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
