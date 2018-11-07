@@ -371,6 +371,26 @@ PRODUCT_PACKAGES += \
     libprotobuf-cpp-full \
     libxml2
 
+# Ramdisk
+PRODUCT_PACKAGES += \
+    fstab.qcom \
+    init.qcom.rc \
+    init.qcom.usb.rc \
+    init.qcom.power.rc \
+    init.recovery.qcom.rc \
+    init.target.rc \
+    init.goodix.sh \
+    ueventd.qcom.rc \
+    init.msm.usb.configfs.rc \
+    init.spectrum.rc \
+    init.spectrum.sh
+
+PRODUCT_PACKAGES += \
+    init.qcom.early_boot.sh \
+    init.qcom.post_boot.sh \
+    init.qcom.sh \
+    init.qcom.usb.sh
+
 # fwk_detect
 PRODUCT_PACKAGES += \
 	libqti_vndfwk_detect
