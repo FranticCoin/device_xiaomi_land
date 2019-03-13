@@ -121,6 +121,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
+    debug.media.codec2=2 \
     debug.stagefright.omx_default_rank.sw-audio=1 \
     debug.stagefright.omx_default_rank=0 \
     media.msm8956hw=0 \
