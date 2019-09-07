@@ -443,6 +443,7 @@ PRODUCT_PACKAGES += \
 # VNDK
 PRODUCT_PACKAGES += \
     vndk_package \
+    libwui \
     libstdc++.vendor
 
 PRODUCT_PACKAGES += \
@@ -451,6 +452,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     prebuilts/vndk/v29/arm64/arch-arm64-armv8-a/shared/vndk-sp/libbinderthreadstate.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libbinderthreadstate.so
+
 
 # WiFi
 PRODUCT_PACKAGES += \
