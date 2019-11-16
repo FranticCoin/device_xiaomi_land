@@ -133,6 +133,9 @@ static void process_interaction_hint(void* data) {
     if (duration > kMinInteractiveDuration) {
         perf_hint_enable_with_type(VENDOR_HINT_SCROLL_BOOST, duration, SCROLL_VERTICAL);
     }
+    else {
+        perf_hint_enable_with_type(VENDOR_HINT_SCROLL_BOOST, duration, SCROLL_PREFILING);
+    }
 }
 
 static int process_activity_launch_hint(void* data) {
