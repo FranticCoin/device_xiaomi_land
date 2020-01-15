@@ -21,9 +21,21 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_m.mk)
 
 # Inherit some common Pixel Experience stuff
-$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+$(call inherit-product, vendor/aosip/config/common_full_phone.mk)
 
+# GApps
+$(call inherit-product-if-exists, vendor/gapps/config.mk)
+
+# PixelStyle
+$(call inherit-product-if-exists, vendor/pixelstyle/config.mk)
+
+# Include pixel ambient sense (Now playing)
+include vendor/aosip/config/ambientsense.mk
+
+# GApps targets
 TARGET_GAPPS_ARCH := arm64
+IS_PHONE := true
+
 TARGET_BOOT_ANIMATION_RES := 720
 
 # Inherit from land device
@@ -33,7 +45,7 @@ PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Redmi 3S
 PRODUCT_DEVICE := land
 PRODUCT_MANUFACTURER := Xiaomi
-PRODUCT_NAME := aosp_land
+PRODUCT_NAME := aosip_land
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
