@@ -15,6 +15,8 @@
 # limitations under the License.
 #
 
+IS_PHONE := true
+
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay
