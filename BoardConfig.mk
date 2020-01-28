@@ -235,9 +235,6 @@ include device/qcom/sepolicy-legacy-um/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 SELINUX_IGNORE_NEVERALLOWS := true
 
-# SurfaceFlinger
-TARGET_USE_AOSP_SURFACEFLINGER := true
-
 #Treble
 ENABLE_VENDOR_IMAGE := true
 TARGET_COPY_OUT_VENDOR := vendor
