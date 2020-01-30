@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012-2013,2015-2017, The Linux Foundation. All rights reserved.
+ * Copyright (c) 2012-2013,2015-2018, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -39,13 +39,16 @@
 #include "list.h"
 #include "hint-data.h"
 #include "power-common.h"
-#include "power-helper.h"
 
 #define LOG_TAG "QCOM PowerHAL"
 #include <log/log.h>
 
-#define USINSEC 1000000L
-#define NSINUS 1000L
+char scaling_gov_path[4][80] ={
+    "/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor",
+    "/sys/devices/system/cpu/cpu1/cpufreq/scaling_governor",
+    "/sys/devices/system/cpu/cpu2/cpufreq/scaling_governor",
+    "/sys/devices/system/cpu/cpu3/cpufreq/scaling_governor"
+};
 
 #define PERF_HAL_PATH "libqti-perfd-client.so"
 static void *qcopt_handle;
@@ -184,10 +187,8 @@ int get_scaling_governor(char governor[], int size)
 
 int get_scaling_governor_check_cores(char governor[], int size,int core_num)
 {
-    char scaling_gov_path[80];
-    snprintf(scaling_gov_path, sizeof(scaling_gov_path),
-             "/sys/devices/system/cpu/cpu%d/cpufreq/scaling_governor", core_num);
-    if (sysfs_read(scaling_gov_path, governor,
+
+    if (sysfs_read(scaling_gov_path[core_num], governor,
                 size) == -1) {
         // Can't obtain the scaling governor. Return.
         return -1;
@@ -208,15 +209,12 @@ int is_interactive_governor(char* governor) {
    return 0;
 }
 
-#ifndef INTERACTION_BOOST
-void interaction(int UNUSED(duration), int UNUSED(num_args), int UNUSED(opt_list[]))
-{
-#else
 void interaction(int duration, int num_args, int opt_list[])
 {
+#ifdef INTERACTION_BOOST
     static int lock_handle = 0;
 
-    if (duration < 0 || num_args < 1 || opt_list[0] == 0)
+    if (duration < 0 || num_args < 1 || opt_list[0] == NULL)
         return;
 
     if (qcopt_handle) {
@@ -231,7 +229,7 @@ void interaction(int duration, int num_args, int opt_list[])
 
 int interaction_with_handle(int lock_handle, int duration, int num_args, int opt_list[])
 {
-    if (duration < 0 || num_args < 1 || opt_list[0] == 0)
+    if (duration < 0 || num_args < 1 || opt_list[0] == NULL)
         return 0;
 
     if (qcopt_handle) {
@@ -361,12 +359,4 @@ void undo_initial_hint_action()
             perf_lock_rel(1);
         }
     }
-}
-
-long long calc_timespan_us(struct timespec start, struct timespec end)
-{
-    long long diff_in_us = 0;
-    diff_in_us += (end.tv_sec - start.tv_sec) * USINSEC;
-    diff_in_us += (end.tv_nsec - start.tv_nsec) / NSINUS;
-    return diff_in_us;
 }

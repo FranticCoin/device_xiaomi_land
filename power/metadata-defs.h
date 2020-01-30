@@ -1,10 +1,9 @@
-/*
- * Copyright (c) 2013, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2012, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
  * met:
- * *    * Redistributions of source code must retain the above copyright
+ *     * Redistributions of source code must retain the above copyright
  *       notice, this list of conditions and the following disclaimer.
  *     * Redistributions in binary form must reproduce the above
  *       copyright notice, this list of conditions and the following
@@ -25,26 +24,31 @@
  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
  * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
  */
-#define NODE_MAX (64)
 
-#define SCALING_GOVERNOR_PATH "/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor"
-#define DCVS_CPU0_SLACK_MAX_NODE "/sys/module/msm_dcvs/cores/cpu0/slack_time_max_us"
-#define DCVS_CPU0_SLACK_MIN_NODE "/sys/module/msm_dcvs/cores/cpu0/slack_time_min_us"
-#define MPDECISION_SLACK_MAX_NODE "/sys/module/msm_mpdecision/slack_time_max_us"
-#define MPDECISION_SLACK_MIN_NODE "/sys/module/msm_mpdecision/slack_time_min_us"
-#define SCALING_MIN_FREQ "/sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq"
-#define ONDEMAND_GOVERNOR "ondemand"
-#define INTERACTIVE_GOVERNOR "interactive"
-#define MSMDCVS_GOVERNOR "msm-dcvs"
-#define SCHEDUTIL_GOVERNOR "schedutil"
+#define ATTRIBUTE_VALUE_DELIM ('=')
+#define ATTRIBUTE_STRING_DELIM (";")
 
-#define HINT_HANDLED (0)
-#define HINT_NONE (-1)
+#define METADATA_PARSING_ERR (-1)
+#define METADATA_PARSING_CONTINUE (0)
+#define METADATA_PARSING_DONE (1)
 
-enum CPU_GOV_CHECK {
-    CPU0 = 0,
-    CPU1 = 1,
-    CPU2 = 2,
-    CPU3 = 3
+#define MIN(x,y) (((x)>(y))?(y):(x))
+
+struct video_encode_metadata_t {
+    int hint_id;
+    int state;
 };
+
+struct video_decode_metadata_t {
+    int hint_id;
+    int state;
+};
+
+int parse_metadata(char *metadata, char **metadata_saveptr,
+    char *attribute, int attribute_size, char *value, int value_size);
+int parse_video_encode_metadata(char *metadata,
+    struct video_encode_metadata_t *video_encode_metadata);
+int parse_video_decode_metadata(char *metadata,
+    struct video_decode_metadata_t *video_decode_metadata);
