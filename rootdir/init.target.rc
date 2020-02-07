@@ -56,6 +56,7 @@ on post-fs
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
 
+    start vendor.qseecomd
     write /dev/ipa 1
 
 on post-fs-data
@@ -114,6 +115,11 @@ service thermal-engine /system/vendor/bin/thermal-engine
    socket thermal-recv-passive-client stream 0666 system system
    socket thermal-send-rule stream 0660 system system
    group root
+
+service audiod /system/vendor/bin/audiod
+   class late_start
+   user system
+   group system
 
 on boot
     start rmt_storage
@@ -187,16 +193,16 @@ service wcnss-service /system/vendor/bin/wcnss_service
 ## imsqmidaemon starts with root and UID will be downgraded to SYSTEM.
 service vendor.imsqmidaemon /system/vendor/bin/imsqmidaemon
     class main
-    user system
+    user radio
     socket ims_qmid stream 0660 system radio
     group radio log diag
 
 # imsdatadaemon starts with root and UID will be downgraded to SYSTEM.
 service vendor.imsdatadaemon /system/vendor/bin/imsdatadaemon
     class main
-    user system
+    user radio
     socket ims_datad stream 0660 system radio
-    group system wifi radio inet log diag
+    group radio wifi inet log diag
     disabled
 
 on property:vendor.ims.QMI_DAEMON_STATUS=1
@@ -204,12 +210,12 @@ on property:vendor.ims.QMI_DAEMON_STATUS=1
 
 service vendor.ims_rtp_daemon /system/vendor/bin/ims_rtp_daemon
    class main
-   user system
-   group radio diag inet log
+   user radio
+   group radio vendor_qti_diag inet log
 
 service vendor.imsrcsservice /system/vendor/bin/imsrcsd
    class main
-   user system
+   user radio
    group radio diag inet log wakelock
 
 on property:vendor.ims.DATA_DAEMON_STATUS=1
@@ -307,7 +313,6 @@ on boot
     write /sys/devices/soc.0/78b8000.i2c/i2c-4/4-0020/input/input0/fw_name PR1702898-s3528t_00260005_00380008.img
     write /sys/devices/soc.0/78b8000.i2c/i2c-4/4-0020/input/input0/update_fw 1
 
-on boot
     chown system system /sys/class/leds/red/blink
     chown system system /sys/class/leds/red/breath
     chown system system /sys/class/leds/red/delay_on
