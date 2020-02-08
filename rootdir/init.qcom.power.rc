@@ -1,11 +1,12 @@
 on boot
     # Update foreground and background cpusets
     # Reserve CPU 7 for the top app
+    write /dev/cpuset/cpus 0-7
     write /dev/cpuset/foreground/cpus 0-7
-    write /dev/cpuset/background/cpus 0-3
+    write /dev/cpuset/foreground/boost/cpus 0-7
+    write /dev/cpuset/background/cpus 4-7
     write /dev/cpuset/system-background/cpus 4-7
     write /dev/cpuset/top-app/cpus 0-7
-    write /dev/cpuset/restricted/cpus 0-5
 
 on enable-low-power
     start qcom-post-boot
@@ -23,6 +24,11 @@ on enable-low-power
 
     # Turn on fsync
     write /sys/module/sync/parameters/fsync_enabled Y
+
+    # Set parameters for sound control
+    write /sys/kernel/sound_control/headphone_gain 0
+    write /sys/kernel/sound_control/mic_gain 20
+    write /sys/kernel/sound_control/speaker_gain 10
 
     # Work against lineage-governor.rc
     chown root root /dev/cpuctl/cpu.notify_on_migrate
