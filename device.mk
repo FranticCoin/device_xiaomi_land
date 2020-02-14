@@ -371,6 +371,10 @@ PRODUCT_PACKAGES += \
     libprotobuf-cpp-full \
     libxml2
 
+# fwk_detect
+PRODUCT_PACKAGES += \
+	libqti_vndfwk_detect
+
 # Seccomp policy
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
