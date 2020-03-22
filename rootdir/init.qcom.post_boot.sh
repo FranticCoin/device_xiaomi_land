@@ -33,7 +33,7 @@ function sched_dcvs_hmp()
     echo 3 > /proc/sys/kernel/sched_window_stats_policy
     echo 3 > /proc/sys/kernel/sched_ravg_hist_size
     # HMP Task packing settings
-    echo 20 > /proc/sys/kernel/sched_small_task
+    echo 50 > /proc/sys/kernel/sched_small_task
     echo 30 > /sys/devices/system/cpu/cpu0/sched_mostly_idle_load
     echo 30 > /sys/devices/system/cpu/cpu1/sched_mostly_idle_load
     echo 30 > /sys/devices/system/cpu/cpu2/sched_mostly_idle_load
@@ -63,34 +63,40 @@ function sched_dcvs_hmp()
     # enable governor for perf cluster
     echo 1 > /sys/devices/system/cpu/cpu0/online
     echo "interactive" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-    echo "19000" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay
+    echo "19000 1248000:39000" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay
     echo 85 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load
     echo 20000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate
-    echo 1094400 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq
+    echo 1248000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq
+    echo 0 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/max_freq_hysteresis
     echo 0 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy
-    echo "45 960000:85" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads
-    echo 40000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time
+    echo "1 960000:80 1248000:85 1401000:90" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads
+    echo 39000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time
+    echo 40000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/sampling_down_factor
 
     # enable governor for power cluster
     echo 1 > /sys/devices/system/cpu/cpu4/online
     echo "interactive" > /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
-    echo 39000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay
-    echo 85 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load
-    echo 40000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate
-    echo 768000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq
-    echo 0 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy
-    echo "45 768000:85" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads
-    echo 40000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time
+    echo "19000 1094400:39000" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay
+    echo 65 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load
+    echo 20000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate
+    echo 1094400 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq
+    echo 0 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/max_freq_hysteresis
+    echo 1 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy
+    echo "1 768000:60 1094400:65 1094400:80" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads
+    echo 39000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time
+    echo 40000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/sampling_down_factor
 
     # Enable sched guided freq control
     echo 1 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_sched_load
     echo 1 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_migration_notif
+    echo 0 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/align_windows
     echo 1 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/enable_prediction
     echo 1 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_sched_load
     echo 1 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_migration_notif
+    echo 0 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/align_windows
     echo 1 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/enable_prediction
-    echo 50000 > /proc/sys/kernel/sched_freq_inc_notify
-    echo 50000 > /proc/sys/kernel/sched_freq_dec_notify
+    echo 200000 > /proc/sys/kernel/sched_freq_inc_notify
+    echo 200000 > /proc/sys/kernel/sched_freq_dec_notify
 
 }
 
@@ -275,14 +281,21 @@ echo 0 > /sys/module/msm_thermal/core_control/enabled
 # Apply Scheduler and Governor
 sched_dcvs_hmp
 
-echo 422400 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
-echo 345600 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
+echo 960000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+echo 768000 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
 
 # Disable L2-GDHS low power modes
 echo N > /sys/module/lpm_levels/system/pwr/pwr-l2-gdhs/idle_enabled
 echo N > /sys/module/lpm_levels/system/pwr/pwr-l2-gdhs/suspend_enabled
 echo N > /sys/module/lpm_levels/system/perf/perf-l2-gdhs/idle_enabled
 echo N > /sys/module/lpm_levels/system/perf/perf-l2-gdhs/suspend_enabled
+
+# Disable E3 low power modes
+echo N > /sys/module/lpm_levels/system/system-pc/idle_enabled
+
+# Disable CCI WFI and CCI RETENTION Low power modes
+echo N > /sys/module/lpm_levels/system/system-wfi/idle_enabled
+echo N > /sys/module/lpm_levels/system/system-ret/idle_enabled
 
 # Bring up all cores online
 echo 1 > /sys/devices/system/cpu/cpu1/online
@@ -297,11 +310,14 @@ echo 1 > /sys/devices/system/cpu/cpu7/online
 echo 0 > /sys/module/lpm_levels/parameters/sleep_disabled
 
 # HMP scheduler (big.Little cluster related) settings
-echo 9 > /proc/sys/kernel/sched_upmigrate_min_nice
-echo 85 > /proc/sys/kernel/sched_spill_load
-echo 85 > /proc/sys/kernel/sched_upmigrate
-echo 55 > /proc/sys/kernel/sched_downmigrate
-echo 1 > /proc/sys/kernel/sched_boost
+echo 98 > /proc/sys/kernel/sched_upmigrate
+echo 85 > /proc/sys/kernel/sched_downmigrate
+echo 5 > /proc/sys/kernel/sched_init_task_load
+echo 50 > /proc/sys/kernel/sched_big_waker_task_load
+echo 20 > /proc/sys/kernel/sched_small_wakee_task_load
+echo 20 > /proc/sys/kernel/sched_spill_nr_run
+echo 1 > /proc/sys/kernel/sched_restrict_tasks_spread
+echo 1 > /proc/sys/kernel/sched_wake_to_idle
 
 # re-enable thermal core_control
 echo 1 > /sys/module/msm_thermal/core_control/enabled
