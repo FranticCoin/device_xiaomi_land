@@ -23,14 +23,16 @@ TARGET_ARCH 	    	:= arm64
 TARGET_ARCH_VARIANT 	:= armv8-a
 TARGET_CPU_ABI 		:= arm64-v8a
 TARGET_CPU_ABI2 	:=
-TARGET_CPU_VARIANT 	:= cortex-a53
+TARGET_CPU_VARIANT 	:= generic
+TARGET_CPU_VARIANT_RUNTIME := cortex-a53
 
 # Second architecture
 TARGET_2ND_ARCH 	:= arm
 TARGET_2ND_ARCH_VARIANT := armv8-a
 TARGET_2ND_CPU_ABI 	:= armeabi-v7a
 TARGET_2ND_CPU_ABI2 	:= armeabi
-TARGET_2ND_CPU_VARIANT 	:= cortex-a53
+TARGET_2ND_CPU_VARIANT 	:= generic
+TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a53
 
 TARGET_BOARD_PLATFORM 	  := msm8937
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno505
@@ -53,6 +55,7 @@ BOARD_KERNEL_PAGESIZE 		:=  2048
 BOARD_MKBOOTIMG_ARGS 		:= --ramdisk_offset 0x01000000 --second_offset 0x00f00000 --tags_offset 0x00000100
 TARGET_KERNEL_CONFIG 		:= land_defconfig
 TARGET_KERNEL_SOURCE 		:= kernel/xiaomi/msm8937
+TARGET_KERNEL_CLANG_COMPILE     := true
 TARGET_EXFAT_DRIVER		:= sdfat
 
 # ANT+
@@ -142,6 +145,7 @@ endif
 
 #Display
 BOARD_USES_ADRENO := true
+TARGET_SCREEN_DENSITY := 280
 TARGET_USES_ION := true
 TARGET_USES_NEW_ION_API :=true
 TARGET_USES_GRALLOC1 := true
@@ -178,7 +182,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 # GPS
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := true
 USE_DEVICE_SPECIFIC_GPS := true
-LOC_HIDL_VERSION := 3.0
+TARGET_NO_RPC := true
 
 # HIDL
 DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/framework_manifest.xml
@@ -231,9 +235,6 @@ TARGET_RECOVERY_FSTAB 		 := $(DEVICE_PATH)/rootdir/fstab.qcom
 include device/qcom/sepolicy-legacy-um/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 SELINUX_IGNORE_NEVERALLOWS := true
-
-# SurfaceFlinger
-TARGET_USE_AOSP_SURFACEFLINGER := true
 
 #Treble
 ENABLE_VENDOR_IMAGE := true

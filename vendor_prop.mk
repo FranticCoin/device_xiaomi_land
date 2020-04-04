@@ -69,7 +69,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=196610 \
-    ro.sf.lcd_density=280 \
     debug.sf.enable_hwc_vds=1 \
     debug.sf.hw=0 \
     debug.sf.latch_unsignaled=1 \
@@ -83,7 +82,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     sdm.debug.disable_skip_validate=1 \
     vendor.display.enable_default_color_mode=1 \
     vendor.display.disable_skip_validate=1 \
-    persist.debug.wfd.enable=1 \
     persist.hwc.enable_vds=1 \
     debug.sdm.support_writeback=0
 
@@ -93,8 +91,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Fingerprint
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.qfp=false \
-    ro.fingerprint.cleanup.unused=false
+    persist.qfp=false
 
 # FM
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -110,14 +107,24 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.loc.nlp_name=com.qualcomm.location \
     ro.gps.agps_provider=1
 
+# LMKD
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.lmk.low=1001 \
+    ro.lmk.medium=800 \
+    ro.lmk.critical=0 \
+    ro.lmk.critical_upgrade=false \
+    ro.lmk.upgrade_pressure=100 \
+    ro.lmk.downgrade_pressure=100 \
+    ro.lmk.kill_heaviest_task=true \
+    ro.lmk.kill_timeout_ms=100 \
+    ro.lmk.use_minfree_levels=true
+
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.stagefright.omx_default_rank.sw-audio=1 \
     debug.stagefright.omx_default_rank=0 \
     media.msm8956hw=0 \
-    mm.enable.smoothstreaming=true \
     mmp.enable.3g2=true \
-    media.aac_51_output_enabled=true \
     vendor.mm.enable.qcom_parser=1048575 \
     vendor.vidc.enc.narrow.searchrange=1 \
     vendor.vidc.disable.split.mode=1 \
