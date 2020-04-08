@@ -35,6 +35,28 @@ on enable-low-power
     write /proc/sys/kernel/sched_window_stats_policy 2
     write /proc/sys/kernel/sched_ravg_hist_size 5
 
+    # Set GPU idle freq & default gov
+    write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 4
+    write /sys/class/kgsl/kgsl-3d0/devfreq/governor simple_ondemand
+
+    # Enable core control
+    write /sys/devices/system/cpu/cpu0/core_ctl/min_cpus 0
+    write /sys/devices/system/cpu/cpu0/core_ctl/max_cpus 4
+    write /sys/devices/system/cpu/cpu0/core_ctl/disable 0
+    write /sys/devices/system/cpu/cpu0/core_ctl/busy_up_thres 90
+    write /sys/devices/system/cpu/cpu0/core_ctl/busy_down_thres 50
+    write /sys/devices/system/cpu/cpu0/core_ctl/offline_delay_ms 100
+    write /sys/devices/system/cpu/cpu0/core_ctl/is_big_cluster 1
+    write /sys/devices/system/cpu/cpu0/core_ctl/task_thres 20
+
+    write /sys/devices/system/cpu/cpu4/core_ctl/min_cpus 1
+    write /sys/devices/system/cpu/cpu4/core_ctl/max_cpus 4
+    write /sys/devices/system/cpu/cpu4/core_ctl/disable 0
+    write /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres 85
+    write /sys/devices/system/cpu/cpu4/core_ctl/busy_down_thres 50
+    write /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms 1000
+    write /sys/devices/system/cpu/cpu4/core_ctl/task_thres 10
+
     # Enable power efficient workqueue
     write /sys/module/workqueue/parameters/power_efficient Y
 
@@ -43,7 +65,7 @@ on enable-low-power
 
     # Set parameters for sound control
     write /sys/kernel/sound_control/headphone_gain 0
-    write /sys/kernel/sound_control/mic_gain 20
+    write /sys/kernel/sound_control/mic_gain 10
     write /sys/kernel/sound_control/speaker_gain 10
 
     # Work against lineage-governor.rc
