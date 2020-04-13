@@ -63,4 +63,6 @@ extract "$MY_DIR"/proprietary-files-qc.txt "$SRC" "$SECTION"
 
 DEVICE_BLOB_ROOT="$LINEAGE_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary
 
+sed -i "s|/system/etc/camera|/vendor/etc/camera|g" "$DEVICE_BLOB_ROOT"/vendor/lib/libmmcamera2_sensor_modules.so
+
 "$MY_DIR"/setup-makefiles.sh
