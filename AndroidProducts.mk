@@ -14,9 +14,9 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_land.mk
+    $(LOCAL_DIR)/pa_land.mk
 
 COMMON_LUNCH_CHOICES := \
-    aosp_land-user \
-    aosp_land-userdebug \
-    aosp_land-eng
+    pa_land-user \
+    pa_land-userdebug \
+    pa_land-eng
