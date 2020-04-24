@@ -26,6 +26,9 @@ $(call inherit-product, vendor/pa/config/common_full_phone.mk)
 # Boot animation
 TARGET_BOOT_ANIMATION_RES := 720
 
+# Paranoid Camera
+TARGET_USES_AOSP_CAMERA := false
+
 # Inherit from land device
 $(call inherit-product, device/xiaomi/land/device.mk)
 
