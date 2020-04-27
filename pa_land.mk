@@ -29,6 +29,11 @@ TARGET_BOOT_ANIMATION_RES := 720
 # Paranoid Camera
 TARGET_USES_AOSP_CAMERA := false
 
+# GApps
+TARGET_GAPPS_ARCH := arm64
+IS_PHONE := true
+TARGET_SUPPORTS_GOOGLE_RECORDER := false
+
 # Inherit from land device
 $(call inherit-product, device/xiaomi/land/device.mk)
 
