@@ -297,7 +297,7 @@ vendor/lib64/libmm-hdcpmgr.so
 vendor/lib64/librs_adreno.so
 vendor/lib64/librs_adreno_sha1.so
 
-# Graphics (SDM) - from LA.UM.8.6.r1-03400-89xx.0
+# Graphics (SDM) - from LA.UM.8.6.r1-04000-89xx.0
 vendor/lib/libscalar.so
 vendor/lib/libsdm-color.so
 vendor/lib/libsdm-diag.so
