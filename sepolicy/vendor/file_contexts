@@ -14,9 +14,6 @@
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service.land          u:object_r:hal_fingerprint_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service\.land                           u:object_r:hal_light_default_exec:s0
 
-# Input devices
-/(vendor|system/vendor)/usr/keylayout(/.*)?                   u:object_r:keylayout_file:s0
-
 # Legacy root dirs
 /firmware(/.*)?                             u:object_r:firmware_file:s0
 /persist(/.*)?                              u:object_r:mnt_vendor_file:s0
@@ -32,3 +29,6 @@
 
 # USB
 /(vendor|system/vendor)/bin/hw/android\.hardware\.usb@1\.0-service\.basic_land		u:object_r:hal_usb_default_exec:s0
+
+# VirtualKeys
+/sys/board_properties/virtualkeys.*         u:object_r:sysfs_virtualkeys:s0
