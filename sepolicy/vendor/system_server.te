@@ -6,6 +6,3 @@ allow system_server sysfs:file { getattr open read };
 allow system_server exported_camera_prop:file { getattr open read };
 allow system_server sysfs_dt2w:dir { search };
 allow system_server sysfs_dt2w:file { read open getattr };
-
-# Input devices
-r_dir_file(system_server, keylayout_file);
