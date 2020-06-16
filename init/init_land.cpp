@@ -43,7 +43,9 @@
 #include <sys/sysinfo.h>
 
 #include "property_service.h"
-#include "vendor_init.h"
+
+namespace android {
+namespace init {
 
 using android::base::GetProperty;
 using android::init::property_set;
@@ -108,3 +110,5 @@ static void variant_properties() {
 void vendor_load_properties() {
     variant_properties();
 }
+}  // namespace init
+} // namespace android
