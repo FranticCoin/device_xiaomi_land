@@ -23,6 +23,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_m.mk)
 # Inherit some common OmniROM stuff
 $(call inherit-product, vendor/omni/config/common.mk)
 
+# Bootanimation
+TARGET_BOOTANIMATION_SIZE := 720p
+
 # Inherit from land device
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
 
