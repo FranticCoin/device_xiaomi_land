@@ -60,6 +60,7 @@ TARGET_KERNEL_CONFIG 		:= land_defconfig
 TARGET_KERNEL_SOURCE 		:= kernel/xiaomi/msm8937
 TARGET_KERNEL_CLANG_COMPILE     := true
 TARGET_EXFAT_DRIVER		:= sdfat
+TARGET_KERNEL_VERSION		:= 4.9
 
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "qualcomm-hidl"
