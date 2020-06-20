@@ -321,6 +321,8 @@ PRODUCT_PACKAGES += \
     libandroid_net
 
 # IPACM
+$(call inherit-product, device/xiaomi/land/data-ipa-cfg-mgr/ipacm_vendor_product.mk)
+
 PRODUCT_PACKAGES += \
     ipacm \
     IPACM_cfg.xml
