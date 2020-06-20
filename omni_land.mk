@@ -29,6 +29,9 @@ $(call inherit-product, vendor/omni/config/common.mk)
 # Bootanimation
 TARGET_BOOTANIMATION_SIZE := 720p
 
+# Additional packages
+PRODUCT_EXCLUDE_EXTRA_PACKAGES := true
+
 # Inherit from land device
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
 
