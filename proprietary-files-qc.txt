@@ -344,7 +344,7 @@ vendor/lib/vendor.qti.voiceprint@1.0.so
 vendor/lib64/hw/sound_trigger.primary.msm8953.so:vendor/lib64/hw/sound_trigger.primary.msm8937.so
 vendor/lib64/vendor.qti.voiceprint@1.0.so
 
-# Media - from LA.UM.8.6.r1-03400-89xx.0
+# Media - from LA.UM.8.6.r1-04000-89xx.0
 lib/extractors/libmmparserextractor.so
 lib/libFileMux.so
 lib/libmmosal.so
