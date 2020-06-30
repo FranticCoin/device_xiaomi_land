@@ -25,6 +25,7 @@ $(call inherit-product, vendor/potato/config/common_full_phone.mk)
 
 TARGET_GAPPS_ARCH := arm64
 TARGET_BOOT_ANIMATION_RES := 720
+TARGET_BOOTANIM_LOW_RES := true
 
 # Inherit from land device
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
