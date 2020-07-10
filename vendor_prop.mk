@@ -51,7 +51,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.is_type=1 \
     persist.ts.postmakeup=true \
     persist.ts.rtmakeup=true \
-    persist.vendor.qti.telephony.vt_cam_interface=1
+    persist.vendor.qti.telephony.vt_cam_interface=1 \
+    persist.camera.HAL3.enabled=1 \
+    persist.vendor.camera.HAL3.enabled=1
 
 # CNE/DPM
 PRODUCT_PROPERTY_OVERRIDES += \
