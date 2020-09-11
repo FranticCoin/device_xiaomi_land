@@ -18,6 +18,7 @@ cc_library_static {
     name: "libinit_land",
     recovery_available: true,
     srcs: ["init_land.cpp"],
+    whole_static_libs: ["libbase"],
     include_dirs: [
         "system/core/base/include",
         "system/core/init",
