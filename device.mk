@@ -334,6 +334,10 @@ PRODUCT_PACKAGES += \
     ethertypes \
     libebtc
 
+# Qualcomm Support
+PRODUCT_SOONG_NAMESPACES := $(LOCAL_PATH)
+PRODUCT_USES_QCOM_HARDWARE := true
+
 # QMI
 PRODUCT_PACKAGES += \
     libjson
