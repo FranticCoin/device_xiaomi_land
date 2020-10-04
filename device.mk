@@ -134,7 +134,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.camera.device@1.0_vendor \
     camera.msm8937 \
     libstdc++.vendor \
-    GCam
+    GCamGo
 
 # Charger
 PRODUCT_PACKAGES += \
