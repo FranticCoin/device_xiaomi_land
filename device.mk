@@ -138,7 +138,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.camera.device@1.0 \
     vendor.qti.hardware.camera.device@1.0_vendor \
     camera.msm8937 \
-    GCam
+    GCamGo
 
 # Configstore
 PRODUCT_PACKAGES += \
