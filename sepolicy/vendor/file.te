@@ -1,6 +1,16 @@
-type fpc_data_file, file_type, data_file_type, core_data_file_type;
-type fpce_socket, file_type;
-type proc_touchpanel, fs_type, sysfs_type;
-type gx_fpd_data_file, file_type, data_file_type, core_data_file_type;
 type keylayout_file, file_type, vendor_file_type;
 type sysfs_fps_attr, fs_type, sysfs_type;
+
+# DT2W
+type sysfs_dt2w, sysfs_type, fs_type;
+
+# Fingerprint data files
+type fpc_data_file, file_type, core_data_file_type, data_file_type;
+type gx_fpd_data_file, file_type, core_data_file_type, data_file_type;
+
+# FPC Fingerprint
+type fpc_socket, file_type;
+type fpc_sysfs, fs_type, sysfs_type;
+
+# Touchscreen
+type proc_touchpanel, fs_type, sysfs_type, proc_type;
