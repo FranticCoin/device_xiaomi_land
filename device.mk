@@ -335,7 +335,10 @@ PRODUCT_PACKAGES += \
     libebtc
 
 # Qualcomm Support
-PRODUCT_SOONG_NAMESPACES := $(LOCAL_PATH)
+PRODUCT_SOONG_NAMESPACES += \
+    $(LOCAL_PATH) \
+    hardware/qcom-caf/msm8996
+
 PRODUCT_USES_QCOM_HARDWARE := true
 
 # QMI
