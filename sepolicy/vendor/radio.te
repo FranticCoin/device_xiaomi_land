@@ -1,0 +1,4 @@
+allow radio cnd:binder { call };
+allow radio qcom_ims_prop:file { getattr open read };
+
+get_prop(radio, qcom_ims_prop)

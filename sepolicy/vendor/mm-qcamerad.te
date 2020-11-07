@@ -12,5 +12,7 @@ allow mm-qcamerad sysfs_graphics:file r_file_perms;
 
 allow mm-qcamerad binder_device:chr_file rw_file_perms;
 
+allow mm-qcamerad system_file:file { getattr open read };
+
 binder_call(mm-qcamerad, servicemanager)
 binder_use(mm-qcamerad)
