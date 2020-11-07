@@ -1,0 +1,2 @@
+allow logpersist logpersist:capability { dac_override dac_read_search };
+allow logpersist cache_file:dir { read search };
