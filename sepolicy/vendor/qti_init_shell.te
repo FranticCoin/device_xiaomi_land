@@ -4,6 +4,6 @@ allow qti_init_shell shell_exec:file { r_file_perms entrypoint };
 allow qti_init_shell toolbox_exec:file { r_file_perms execute_no_trans execute };
 allow qti_init_shell sysfs:file write;
 allow qti_init_shell vfat:dir { read search };
-allow qti_init_shell vfat:file { getattr read };
+allow qti_init_shell vfat:file { getattr open read };
 
 set_prop(qti_init_shell, ctl_default_prop)
