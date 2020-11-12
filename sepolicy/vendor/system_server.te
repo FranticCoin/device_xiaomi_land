@@ -3,7 +3,7 @@ allow system_server app_zygote:process { getpgid };
 allow system_server userspace_reboot_exported_prop:file { getattr open read };
 allow system_server userspace_reboot_config_prop:file { getattr open read };
 allow system_server sysfs:file { getattr open read };
-allow system_server exported_camera_prop:file { open read };
+allow system_server exported_camera_prop:file { getattr open read };
 
 # Input devices
 r_dir_file(system_server, keylayout_file);
