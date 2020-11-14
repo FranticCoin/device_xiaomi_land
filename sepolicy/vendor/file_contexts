@@ -27,5 +27,8 @@
 /sys/devices/soc/leds-qpnp-[0-9]+/leds(/.*)?                                u:object_r:sysfs_leds:s0
 /sys/devices/soc/soc:gpio-leds/leds(/.*)?                                   u:object_r:sysfs_leds:s0
 
+# Misc
+/system/bin/clean_scratch_files                            u:object_r:clean_scratch_files_exec:s0
+
 # USB
 /(vendor|system/vendor)/bin/hw/android\.hardware\.usb@1\.0-service\.basic_land		u:object_r:hal_usb_default_exec:s0
