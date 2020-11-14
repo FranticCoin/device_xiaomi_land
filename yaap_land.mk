@@ -25,6 +25,9 @@ $(call inherit-product, vendor/yaap/config/common_full_phone.mk)
 
 TARGET_ARCH := arm64
 
+# Bootanimation
+scr_resolution := 720
+
 # Inherit from land device
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
 
