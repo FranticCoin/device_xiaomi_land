@@ -344,9 +344,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti
 
-#Properties
--include $(LOCAL_PATH)/vendor_prop.mk
-
 # RCS
 PRODUCT_PACKAGES += \
     com.android.ims.rcsmanager \
@@ -449,9 +446,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/fstman.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/fstman.ini \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    wifi.interface=wlan0
 
 # WiFi Display
 PRODUCT_PACKAGES += \
