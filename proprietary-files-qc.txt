@@ -738,7 +738,7 @@ vendor/lib/vndk/libprocessgroup.so
 # Wi-Fi - from Panther
 vendor/bin/wcnss_service
 
-# WiFi Display - from LA.UM.8.6.r1-03400-89xx.0
+# WiFi Display - from LA.UM.9.6.2.r1-02500-89xx.0
 bin/wfdservice
 etc/init/wfdservice.rc
 etc/wfdconfig.xml
@@ -764,13 +764,14 @@ lib/libwfduibcsinkinterface.so
 lib/libwfduibcsink.so
 lib/libwfduibcsrcinterface.so
 lib/libwfduibcsrc.so
+lib/libstagefright_enc_common.so
 lib64/libwfdclient.so
 lib64/libwfdnative.so
 -priv-app/WfdService/WfdService.apk
 vendor/bin/wifidisplayhalservice
 vendor/etc/init/com.qualcomm.qti.wifidisplayhal@1.0-service.rc
+vendor/lib/com.qualcomm.qti.wifidisplayhal@1.0.so
 vendor/lib/com.qualcomm.qti.wifidisplayhal@1.0-halimpl.so
-vendor/lib/libDxHdcp.so
 vendor/lib/libwfdcommonutils_proprietary.so
 vendor/lib/libwfdhaldsmanager.so
 vendor/lib/libwfdhdcpcp.so
