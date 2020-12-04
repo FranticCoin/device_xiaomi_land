@@ -37,6 +37,9 @@ allow gx_fpd self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
 allow gx_fpd vfat:dir { search };
 allow gx_fpd vfat:file { getattr open read };
 
+allow gx_fpd vndbinder_device:chr_file { rw_file_perms };
+allow gx_fpd vndservicemanager:binder { call };
+
 # Allow reading firmware file
 r_dir_file(gx_fpd, firmware_file)
 
