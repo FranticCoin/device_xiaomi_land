@@ -28,6 +28,9 @@ TARGET_ARCH := arm64
 # Bootanimation
 scr_resolution := 720
 
+# GApps
+TARGET_BUILD_GAPPS := true
+
 # Inherit from land device
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
 
