@@ -23,6 +23,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_m.mk)
 # Inherit some common Project 404 stuff
 $(call inherit-product, vendor/404/configs/common.mk)
 
+# Bootanimation
+TARGET_BOOT_ANIMATION_RES := 720
+
 # Inherit from land device
 $(call inherit-product, device/xiaomi/land/device.mk)
 
