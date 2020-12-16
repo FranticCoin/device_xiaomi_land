@@ -232,10 +232,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.cryptfshw@1.0-service-qti.qsee
 
-# IMS
-PRODUCT_PACKAGES += \
-    com.android.ims.rcsmanager
-
 # Init scripts ramdisk
 PRODUCT_PACKAGES += \
     init.goodix.sh \
