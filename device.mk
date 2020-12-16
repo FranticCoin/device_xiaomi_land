@@ -339,7 +339,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
 
 # QTI Common
-TARGET_COMMON_QTI_COMPONENTS := perf
+TARGET_COMMON_QTI_COMPONENTS := perf bt
 
 # Perf configuration
 PRODUCT_COPY_FILES += \
