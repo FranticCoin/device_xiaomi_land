@@ -178,7 +178,7 @@
     <hal format="hidl">
         <name>android.hardware.radio</name>
         <transport>hwbinder</transport>
-        <fqname>@1.1::IRadio/slot1</fqname>
+        <fqname>@1.0::IRadio/slot1</fqname>
         <fqname>@1.1::IRadio/slot2</fqname>
         <fqname>@1.1::ISap/slot1</fqname>
         <fqname>@1.1::ISap/slot2</fqname>
