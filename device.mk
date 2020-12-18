@@ -342,6 +342,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
 
+# QTI Common
+$(call inherit-product, device/qcom/common/common.mk)
+TARGET_COMMON_QTI_COMPONENTS := perf
+
 # Perf configuration
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/perf/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml \
