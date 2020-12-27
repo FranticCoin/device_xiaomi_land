@@ -212,20 +212,28 @@ vendor/etc/init/init.qti.fm.rc
 vendor/lib/hw/gatekeeper.msm8953.so:vendor/lib/hw/gatekeeper.msm8937.so
 vendor/lib64/hw/gatekeeper.msm8953.so:vendor/lib64/hw/gatekeeper.msm8937.so
 
-# GPS - from LA.UM.8.6.r1-03400-89xx.0
-vendor/bin/hw/android.hardware.gnss@2.0-service-qti
+# GPS - from LA.UM.9.6.2.r1-03300-89xx.0
+vendor/bin/hw/android.hardware.gnss@2.1-service-qti
 vendor/bin/loc_launcher
 vendor/bin/lowi-server
 vendor/bin/slim_daemon
 vendor/bin/xtra-daemon
 vendor/bin/xtwifi-client
 vendor/bin/xtwifi-inet-agent
-vendor/etc/init/android.hardware.gnss@2.0-service-qti.rc
--vendor/etc/vintf/manifest/android.hardware.gnss@2.0-service-qti.xml
--vendor/etc/vintf/manifest/vendor.qti.gnss@3.0-service.xml
-vendor/lib64/hw/android.hardware.gnss@2.0-impl-qti.so
-vendor/lib64/hw/vendor.qti.gnss@3.0-impl.so
+vendor/etc/flp.conf
+vendor/etc/gnss_antenna_info.conf
+vendor/etc/izat.conf
+vendor/etc/lowi.conf
+vendor/etc/sap.conf
+vendor/etc/xtwifi.conf
+vendor/etc/init/android.hardware.gnss@2.1-service-qti.rc
+-vendor/etc/vintf/manifest/android.hardware.gnss@2.1-service-qti.xml
+-vendor/etc/vintf/manifest/vendor.qti.gnss@4.0-service.xml
+vendor/lib64/hw/android.hardware.gnss@2.1-impl-qti.so
+vendor/lib64/hw/vendor.qti.gnss@4.0-impl.so
 vendor/lib64/libbatching.so
+vendor/lib64/libcdfw.so
+vendor/lib64/libcdfw_remote_api.so
 vendor/lib64/libdataitems.so
 vendor/lib64/libgdtap.so
 vendor/lib64/libgeofencing.so
@@ -240,9 +248,10 @@ vendor/lib64/liblocation_api.so
 vendor/lib64/liblocationservice_glue.so
 vendor/lib64/liblocationservice.so
 vendor/lib64/libloc_core.so
+vendor/lib64/libloc_socket.so
 vendor/lib64/liblowi_client.so
 vendor/lib64/liblowi_wifihal.so
-vendor/lib64/libqdma_file_agent.so
+vendor/lib64/libqcc_file_agent.so
 vendor/lib64/libslimclient.so
 vendor/lib64/libxtadapter.so
 vendor/lib64/vendor.qti.gnss@1.0.so
@@ -250,8 +259,10 @@ vendor/lib64/vendor.qti.gnss@1.1.so
 vendor/lib64/vendor.qti.gnss@1.2.so
 vendor/lib64/vendor.qti.gnss@2.0.so
 vendor/lib64/vendor.qti.gnss@2.1.so
-vendor/lib64/vendor.qti.gnss@3.0-service.so
+vendor/lib64/vendor.qti.gnss@4.0-service.so
 vendor/lib64/vendor.qti.gnss@3.0.so
+vendor/lib64/vendor.qti.gnss@4.0.so
+vendor/lib64/vendor.qti.hardware.qccsyshal@1.0.so
 
 # Graphics - from LA.UM.8.6.r1-03400-89xx.0
 vendor/lib/egl/eglSubDriverAndroid.so
