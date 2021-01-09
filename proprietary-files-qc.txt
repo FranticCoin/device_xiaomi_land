@@ -722,7 +722,7 @@ etc/init/wfdservice.rc
 etc/wfdconfigsink.xml
 etc/wfdconfig.xml
 -framework/WfdCommon.jar
-lib/com.qualcomm.qti.wifidisplayhal@1.0.so
+lib/com.qualcomm.qti.wifidisplayhal@1.0.so:vendor/lib/com.qualcomm.qti.wifidisplayhal@1.0.so
 lib/libaudioclient:lib/libwfdaudioclient.so
 lib/libmediautils:lib/libwfdmediautils.so
 lib/libwfdavenhancements.so
