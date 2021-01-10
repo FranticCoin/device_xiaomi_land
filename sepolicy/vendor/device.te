@@ -2,3 +2,6 @@ type misc_partition, dev_type;
 
 # Goodix Fingerprint
 type gx_fpd_device, dev_type;
+
+type vendor_persist_block_device, dev_type;
+
