@@ -76,7 +76,8 @@ PRODUCT_COPY_FILES += \
 
 # ANT
 PRODUCT_PACKAGES += \
-    AntHalService
+    AntHalService \
+    com.dsi.ant.antradio_library
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -152,10 +153,12 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm8937 \
     memtrack.msm8937 \
     libdisplayconfig \
+    libdisplayconfig.qti.vendor \
     libhwc2on1adapter \
     libgenlock \
     libtinyxml \
-    libqdMetaData.system
+    libqdMetaData \
+    libvulkan
 
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl \
@@ -332,11 +335,7 @@ PRODUCT_COPY_FILES += \
 # Perf configuration
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/perf/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml \
-    $(LOCAL_PATH)/configs/perf/perfboostsconfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perf/perfboostsconfig.xml \
-    $(LOCAL_PATH)/configs/perf/perfconfigstore.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perf/perfconfigstore.xml \
-    $(LOCAL_PATH)/configs/perf/perf-profile0.conf:$(TARGET_COPY_OUT_VENDOR)/etc/perf/perf-profile0.conf \
-    $(LOCAL_PATH)/configs/perf/targetconfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perf/targetconfig.xml \
-    $(LOCAL_PATH)/configs/perf/targetresourceconfigs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perf/targetresourceconfigs.xml
+    $(LOCAL_PATH)/configs/perf/perf-profile0.conf:$(TARGET_COPY_OUT_VENDOR)/etc/perf/perf-profile0.conf
 
 # Power
 PRODUCT_PACKAGES += \
@@ -357,10 +356,6 @@ PRODUCT_PACKAGES += \
     librmnetctl \
     libprotobuf-cpp-full \
     libxml2
-
-# Seccomp policy
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy
 
 # Sensors
 PRODUCT_PACKAGES += \
@@ -420,9 +415,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-full-vendorcompat \
     libprotobuf-cpp-lite-vendorcompat
-
-PRODUCT_COPY_FILES += \
-    prebuilts/vndk/v29/arm64/arch-arm64-armv8-a/shared/vndk-sp/libcutils.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libcutils-v29.so
 
 # WiFi
 PRODUCT_PACKAGES += \
