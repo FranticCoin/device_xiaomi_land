@@ -1,1 +1,2 @@
 allow hal_rcsservice system_app:binder { call transfer };
+allow hal_rcsservice media_rw_data_file:file { execute getattr open read };
