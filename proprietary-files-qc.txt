@@ -730,7 +730,7 @@ etc/init/wfdservice.rc
 etc/wfdconfigsink.xml
 etc/wfdconfig.xml
 -framework/WfdCommon.jar
-lib/com.qualcomm.qti.wifidisplayhal@1.0.so:vendor/lib/com.qualcomm.qti.wifidisplayhal@1.0.so
+lib/com.qualcomm.qti.wifidisplayhal@1.0.so
 lib/libaudioclient:lib/libwfdaudioclient.so
 lib/libmediautils:lib/libwfdmediautils.so
 lib/libwfdavenhancements.so
@@ -756,6 +756,7 @@ lib64/libwfdnative.so
 -priv-app/WfdService/WfdService.apk
 vendor/bin/wifidisplayhalservice
 vendor/etc/init/com.qualcomm.qti.wifidisplayhal@1.0-service.rc
+vendor/lib/com.qualcomm.qti.wifidisplayhal@1.0.so
 vendor/lib/com.qualcomm.qti.wifidisplayhal@1.0-halimpl.so
 vendor/lib/libwfdcommonutils_proprietary.so
 vendor/lib/libwfdhaldsmanager.so
