@@ -6,5 +6,7 @@ allow qti_init_shell sysfs:file write;
 allow qti_init_shell vfat:dir { read search };
 allow qti_init_shell vfat:file { getattr open read };
 allow qti_init_shell configfs:dir { write };
+allow qti_init_shell configfs:dir { add_name };
+allow qti_init_shell configfs:file { create };
 
 set_prop(qti_init_shell, ctl_default_prop)
