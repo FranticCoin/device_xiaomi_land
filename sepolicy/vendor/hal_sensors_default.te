@@ -1,0 +1,1 @@
+allow hal_sensors_default mnt_vendor_file:file { open read };
