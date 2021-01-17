@@ -1,0 +1,1 @@
+allow sensors mnt_vendor_file:file { getattr open read write };
