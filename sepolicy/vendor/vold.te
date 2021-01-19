@@ -1,4 +1,4 @@
-allow vold adsprpcd_file:dir { read };
+allow vold adsprpcd_file:dir { open read };
 allow vold proc_touchpanel:dir r_dir_perms;
 allow vold storage_stub_file:dir rw_dir_perms;
 allow vold sysfs_mmc_host:file { write };
