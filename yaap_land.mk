@@ -23,6 +23,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_m.mk)
 # Inherit some common Yet Another AOSP Project stuff
 $(call inherit-product, vendor/yaap/config/common_full_phone.mk)
 
+TARGET_ARCH := arm64
+
 # Bootanimation
 scr_resolution := 720
 
