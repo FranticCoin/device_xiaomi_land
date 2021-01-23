@@ -1,5 +1,4 @@
 allow fsck persist_block_device:blk_file rw_file_perms;
-allow fsck block_device:blk_file { ioctl read open write };
-allow fsck fsck:capability { dac_override dac_read_search kill };
+allow fsck block_device:blk_file { ioctl };
+allow fsck fsck:capability { kill };
 allow fsck tmpfs:blk_file { getattr };
-allow fsck mnt_vendor_file:dir { getattr };

@@ -3,7 +3,7 @@ typeattribute mm-qcamerad data_between_core_and_vendor_violators;
 allow mm-qcamerad camera_data_file:dir w_dir_perms;
 allow mm-qcamerad camera_data_file:file create_file_perms;
 allow mm-qcamerad camera_data_file:sock_file { create unlink };
-allow mm-qcamerad system_server:unix_stream_socket rw_socket_perms;
+allow mm-qcamerad system_server:unix_stream_socket { read write };
 
 allow mm-qcamerad sensorservice_service:service_manager find;
 
@@ -11,8 +11,6 @@ allow mm-qcamerad sysfs:file r_file_perms;
 allow mm-qcamerad sysfs_graphics:file r_file_perms;
 
 allow mm-qcamerad binder_device:chr_file rw_file_perms;
-
-allow mm-qcamerad system_file:file { getattr open read };
 
 binder_call(mm-qcamerad, servicemanager)
 binder_use(mm-qcamerad)

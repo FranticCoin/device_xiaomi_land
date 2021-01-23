@@ -1,13 +1,8 @@
 allow system_app sysfs_zram:dir { search };
 allow system_app sysfs_zram:file { getattr open read };
-
 allow system_app proc_vmallocinfo:file { getattr open read };
-
 allow system_app hal_power_default:binder { call };
-allow system_app netd:binder { call };
-allow system_app installd:binder { call };
 allow system_app iorapd:binder { call };
 allow system_app hal_rcsservice:binder { call transfer };
-
-allow system_app system_data_file:file { create open rename setattr write };
+allow system_app system_data_file:file { open };
 allow system_app system_data_file:dir { add_name remove_name };

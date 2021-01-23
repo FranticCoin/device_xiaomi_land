@@ -2,11 +2,8 @@ allow iorap_inode2filename adbd_exec:file { getattr };
 allow iorap_inode2filename adsprpcd_file:dir { read };
 allow iorap_inode2filename asec_image_file:dir { open read };
 
-allow iorap_inode2filename vendor_data_file:dir { open read };
 allow iorap_inode2filename vendor_firmware_file:dir { open read };
-allow iorap_inode2filename vendor_mbn_data_file:dir { open read };
 allow iorap_inode2filename vendor_overlay_file:dir { open read };
-allow iorap_inode2filename vendor_radio_data_file:dir { read };
 
 allow iorap_inode2filename vfat:dir { open read };
 
@@ -16,10 +13,8 @@ allow iorap_inode2filename cache_backup_file:dir { open read };
 allow iorap_inode2filename cache_recovery_file:dir { read };
 allow iorap_inode2filename preloads_data_file:dir { open read };
 
-allow iorap_inode2filename dropbox_data_file:dir { open read };
 allow iorap_inode2filename dropbox_data_file:file { getattr };
 
 allow iorap_inode2filename fingerprintd_data_file:dir { open read };
-allow iorap_inode2filename mediadrm_vendor_data_file:dir { read };
 allow iorap_inode2filename media_rw_data_file:dir { open read };
 allow iorap_inode2filename shell_exec:file { getattr };
