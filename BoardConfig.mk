@@ -259,7 +259,6 @@ WIFI_DRIVER_FW_PATH_AP := "ap"
 WIFI_DRIVER_FW_PATH_STA := "sta"
 WIFI_DRIVER_FW_PATH_P2P := "p2p"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
-TARGET_HAS_BROKEN_WLAN_SET_INTERFACE := true
 
 # Inherit the proprietary files
 -include vendor/xiaomi/land/BoardConfigVendor.mk
