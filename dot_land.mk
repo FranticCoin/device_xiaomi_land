@@ -26,6 +26,9 @@ $(call inherit-product, vendor/dot/config/common.mk)
 # Bootanimation
 TARGET_BOOT_ANIMATION_RES := 720
 
+# Blurs
+TARGET_SUPPORTS_BLUR := true
+
 # Inherit from land device
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
 
