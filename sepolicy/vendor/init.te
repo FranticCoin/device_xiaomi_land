@@ -9,3 +9,4 @@ allow init sysfs_leds:lnk_file { read };
 allow init socket_device:sock_file { create setattr unlink };
 allow init init:netlink_route_socket { read };
 allow init init:socket { read };
+allow init sysfs_dt2w:file { setattr };
