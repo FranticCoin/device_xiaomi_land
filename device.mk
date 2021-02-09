@@ -136,6 +136,10 @@ PRODUCT_PACKAGES += \
     libstdc++.vendor \
     GCam
 
+# Charger
+PRODUCT_PACKAGES += \
+    charger_res_images
+
 # Configstore
 PRODUCT_PACKAGES += \
     android.hardware.configstore@1.0-service
