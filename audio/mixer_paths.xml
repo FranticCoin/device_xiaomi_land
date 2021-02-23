@@ -1065,7 +1065,6 @@
         <ctl name="ADC3 Volume" value="6" />
         <ctl name="DEC1 MUX" value="ADC2" />
         <ctl name="ADC2 MUX" value="INP3" />
-        <ctl name="ADC1_INP1 Switch" value="1" />
     </path>
 
     <path name="speaker">
@@ -1281,6 +1280,7 @@
         <ctl name="ADC3 Volume" value="8" />
 <!-- -bug 196716,zhangjianming.wt,ADD,20160111,other can not reciving sound  -->
         <ctl name="DEC2 MUX" value="ADC1" />
+        <ctl name="ADC1_INP1 Switch" value="1" />
         <ctl name="MI2S_TX Channels" value="Two" />
 	<ctl name="DEC1 Volume" value="92" />
         <ctl name="DEC2 Volume" value="92" />
