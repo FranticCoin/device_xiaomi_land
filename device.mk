@@ -29,7 +29,6 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 # Permissions
 PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.low_latency.xml \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth_le.xml \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth.xml \
@@ -127,15 +126,18 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    camera.device@1.0-impl \
-    camera.device@3.2-impl \
-    android.hardware.camera.provider@2.4-impl \
+    PRODUCT_PACKAGES += \
+    android.hardware.camera.provider@2.4-impl:32 \
     android.hardware.camera.provider@2.4-service \
-    vendor.qti.hardware.camera.device@1.0 \
-    vendor.qti.hardware.camera.device@1.0_vendor \
     camera.msm8937 \
+    libmm-qcamera \
     libstdc++.vendor \
     GCamGo
+
+PRODUCT_PACKAGES += \
+    android.hardware.camera.device@3.4 \
+    android.hardware.camera.provider@2.5 \
+    vendor.qti.hardware.camera.device@1.0
 
 # Charger
 PRODUCT_PACKAGES += \
@@ -249,7 +251,6 @@ PRODUCT_PACKAGES += \
 
 # Init scripts ramdisk
 PRODUCT_PACKAGES += \
-    init.goodix.sh \
     init.msm.usb.configfs.rc \
     init.recovery.qcom.rc \
     init.qcom.rc \
@@ -364,7 +365,8 @@ PRODUCT_PACKAGES += \
     android.hardware.secure_element@1.0 \
     libcnefeatureconfig \
     librmnetctl \
-    libprotobuf-cpp-full
+    libprotobuf-cpp-full \
+    libxml2
 
 # Sensors
 PRODUCT_PACKAGES += \
